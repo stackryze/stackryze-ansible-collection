@@ -1,0 +1,19 @@
+name: ci
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ansible-core pyyaml
+      - name: Compile modules
+        run: python -m py_compile plugins/modules/dns_record.py plugins/module_utils/stackryze.py
+      - name: Build collection
+        run: ansible-galaxy collection build --force
