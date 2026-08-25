@@ -21,7 +21,7 @@ options:
     description:
       - API base URL (include C(/api)).
     type: str
-    default: https://api.stackryze.com/api
+    default: https://api-dns.stackryze.com/api
   zone:
     description:
       - The zone name (e.g. C(example.com)). Must already exist on Stackryze.
@@ -109,7 +109,7 @@ def run_module():
     module = AnsibleModule(
         argument_spec=dict(
             api_token=dict(type="str", required=False, no_log=True, fallback=(env_fallback, ["STACKRYZE_API_TOKEN"])),
-            api_url=dict(type="str", default="https://api.stackryze.com/api", fallback=(env_fallback, ["STACKRYZE_API_URL"])),
+            api_url=dict(type="str", default="https://api-dns.stackryze.com/api", fallback=(env_fallback, ["STACKRYZE_API_URL"])),
             zone=dict(type="str", required=True),
             name=dict(type="str", default="@"),
             type=dict(type="str", required=True, choices=["A", "AAAA", "CNAME", "MX", "TXT", "SRV", "CAA"]),

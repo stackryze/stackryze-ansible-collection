@@ -19,7 +19,7 @@ pass `api_token:` or export it:
 
 ```bash
 export STACKRYZE_API_TOKEN=sk_dns_xxxxxxxx
-# optional: export STACKRYZE_API_URL=https://api.stackryze.com/api
+# optional: export STACKRYZE_API_URL=https://api-dns.stackryze.com/api
 ```
 
 ## Modules
@@ -31,7 +31,7 @@ Idempotently create or delete a single record.
 | Option | Required | Default | Notes |
 |--------|----------|---------|-------|
 | `api_token` | no | env `STACKRYZE_API_TOKEN` | Write-scope token |
-| `api_url` | no | `https://api.stackryze.com/api` | Or env `STACKRYZE_API_URL` |
+| `api_url` | no | `https://api-dns.stackryze.com/api` | Or env `STACKRYZE_API_URL` |
 | `zone` | yes | — | Zone name; must exist on Stackryze |
 | `name` | no | `@` | Label relative to the zone |
 | `type` | yes | — | A, AAAA, CNAME, MX, TXT, SRV, CAA |

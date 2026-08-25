@@ -20,7 +20,7 @@ class StackryzeError(Exception):
 
 class StackryzeAPI(object):
     def __init__(self, api_url, token):
-        self.base = (api_url or "https://api.stackryze.com/api").rstrip("/")
+        self.base = (api_url or "https://api-dns.stackryze.com/api").rstrip("/")
         self.token = token
 
     def _request(self, method, path, payload=None):
