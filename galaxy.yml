@@ -1,0 +1,15 @@
+namespace: stackryze
+name: dns
+version: 0.1.0
+readme: README.md
+authors:
+  - Stackryze
+description: Manage DNS records on Stackryze DNS (dns.stackryze.com).
+license:
+  - MIT
+tags:
+  - dns
+  - stackryze
+  - networking
+repository: https://github.com/stackryze/stackryze-ansible-collection
+issues: https://github.com/stackryze/stackryze-ansible-collection/issues

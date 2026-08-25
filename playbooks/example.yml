@@ -1,0 +1,42 @@
+---
+- name: Manage Stackryze DNS records
+  hosts: localhost
+  gather_facts: false
+  # export STACKRYZE_API_TOKEN=sk_dns_xxx  (or pass api_token:)
+  tasks:
+    - name: Apex A record
+      stackryze.dns.dns_record:
+        zone: example.com
+        name: "@"
+        type: A
+        content: 93.184.216.34
+        ttl: 3600
+
+    - name: www CNAME
+      stackryze.dns.dns_record:
+        zone: example.com
+        name: www
+        type: CNAME
+        content: example.com
+
+    - name: Mail MX
+      stackryze.dns.dns_record:
+        zone: example.com
+        name: "@"
+        type: MX
+        content: "10 mail.example.com"
+
+    - name: SPF TXT
+      stackryze.dns.dns_record:
+        zone: example.com
+        name: "@"
+        type: TXT
+        content: "v=spf1 include:_spf.google.com ~all"
+
+    - name: Remove a stale record
+      stackryze.dns.dns_record:
+        zone: example.com
+        name: old
+        type: A
+        content: 1.2.3.4
+        state: absent
